@@ -1,5 +1,4 @@
-node X11 Desktop Entry
-===============
+# Desktop Entry
 
 NodeJS X11 Menu Entry Library.
 
