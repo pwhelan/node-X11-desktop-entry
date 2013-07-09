@@ -2,6 +2,8 @@
 
 NodeJS X11 Desktop Entry
 
+[FreeDesktop Desktop Entry Spec. 1.0](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html)
+
 ## Getting Started
 Install the module with: `npm install X11-desktop-entry`
 
