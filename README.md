@@ -1,4 +1,4 @@
-# X11-desktop-entry [![Build Status](https://secure.travis-ci.org/opatry/node-X11-desktop-entry.png?branch=master)](http://travis-ci.org/opatry/node-X11-desktop-entry)
+# X11 Desktop Entry [![Build Status](https://secure.travis-ci.org/opatry/node-X11-desktop-entry.png?branch=master)](http://travis-ci.org/opatry/node-X11-desktop-entry)
 
 NodeJS X11 Desktop Entry
 
