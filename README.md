@@ -5,7 +5,19 @@ NodeJS X11 Desktop Entry
 [FreeDesktop Desktop Entry Spec. 1.0](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html)
 
 ## Getting Started
-Install the module with: `npm install X11-desktop-entry`
+Install the module using [npm](https://npmjs.org/):
+```bash
+$ npm install X11-desktop-entry
+```
+
+Write a NodeJS script using the library and load a Desktop Entry file:
+```
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=MimeType
+Comment=This is a comment
+```
 
 ```javascript
 var desktop_entry = require('desktop-entry');
@@ -19,20 +31,14 @@ desktop_entry.load('./myfile.entry',
 	function(errorMessage){
 		// handle error here
 	}
-	);
+);
 ```
 
-## Documentation
-_(Coming soon)_
+Finally invoke `node` on it:
 
-## Examples
-_(Coming soon)_
-
-## Contributing
-In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
-
-## Release History
-_(Nothing yet)_
+```bash
+$ node mytest.js
+```
 
 ## License
 Copyright (c) 2013 opatry  
