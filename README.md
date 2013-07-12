@@ -1,8 +1,6 @@
 # X11 Desktop Entry [![Build Status](https://secure.travis-ci.org/opatry/node-X11-desktop-entry.png?branch=master)](http://travis-ci.org/opatry/node-X11-desktop-entry)
 
-NodeJS X11 Desktop Entry
-
-[FreeDesktop Desktop Entry Spec. 1.0](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html)
+NodeJS X11 Desktop Entry is a NodeJS Library used to load and handle X11 Desktop Entries as defined by the [FreeDesktop Desktop Entry Spec. 1.0](http://standards.freedesktop.org/desktop-entry-spec/desktop-entry-spec-1.0.html).
 
 ## Getting Started
 Install the module using [npm](https://npmjs.org/):
