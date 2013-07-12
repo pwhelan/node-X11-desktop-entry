@@ -1,0 +1,7 @@
+# Key names must contain only the characters A-Za-z0-9-.
+# this test must fail
+
+[Desktop Entry]
+aaa=lowercase
+AAA=uppercase
+aAa=mixed

@@ -1,0 +1,9 @@
+# Key names must contain only the characters A-Za-z0-9-.
+# this test must pass
+
+[Desktop Entry]
+abcdefghijklmnopqrst=lowercase_alpha
+ABCDEFGHIJKLMNOPQRST=uppercase_alpha
+0123456789=numbers
+-=dash
+abcdefghijklmnopqrst-0123456789-ABCDEFGHIJKLMNOPQRST=mixed

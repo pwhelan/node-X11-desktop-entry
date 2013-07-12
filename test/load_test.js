@@ -98,7 +98,7 @@ exports.testLoad = {
 				test.ok(true);
 				test.done();
 			},function(errorMessage){
-				test.ok(false, "Valid Desktop Entry (leading empty lines) should'nt trigger the error callback.");
+				test.ok(false, "Valid Desktop Entry (leading empty lines) shouldn't trigger the error callback.");
 				test.done();
 			}
 		);
@@ -112,9 +112,81 @@ exports.testLoad = {
 				test.ok(true);
 				test.done();
 			},function(errorMessage){
-				test.ok(false, "Valid Desktop Entry (trailing empty lines) should'nt call the error callback");
+				test.ok(false, "Valid Desktop Entry (trailing empty lines) shouldn't trigger the error callback");
 				test.done();
 			}
 		);
 	},
+	
+	validKeyNames: function(test){
+		test.expect(5);
+		// FIXME retrieve the resource relatively to the test, not the cwd
+		desktop_entry.load('./test/testValidKeyNames.entry',
+			function(menu) {
+				var entries = menu["Desktop Entry"];
+				test.strictEqual(entries["abcdefghijklmnopqrst"], "lowercase_alpha");
+				test.strictEqual(entries["ABCDEFGHIJKLMNOPQRST"], "uppercase_alpha");
+				test.strictEqual(entries["0123456789"], "numbers");
+				test.strictEqual(entries["-"], "dash");
+				test.strictEqual(entries["abcdefghijklmnopqrst-0123456789-ABCDEFGHIJKLMNOPQRST"], "mixed");
+				test.done();
+			},function(errorMessage){
+				test.ok(false, "Valid Desktop Entry (key name matches [A-Za-z0-9-]+) shouldn't trigger the error callback");
+				test.done();
+			}
+		);
+	},
+	
+	invalidKeyNames001: function(test){
+		test.expect(1);
+		// FIXME retrieve the resource relatively to the test, not the cwd
+		desktop_entry.load('./test/testInvalidKeyNames001.entry',
+			function(entries) {
+				test.ok(false, "Invalid Desktop Entry (key name doesn't match [A-Za-z0-9-]+) must trigger the error callback");
+				test.done();
+			},function(errorMessage){
+				test.ok(true);
+				test.done();
+			}
+		);
+	},
+	
+	invalidKeyNames002: function(test){
+		test.expect(1);
+		// FIXME retrieve the resource relatively to the test, not the cwd
+		desktop_entry.load('./test/testInvalidKeyNames002.entry',
+			function(entries) {
+				test.ok(false, "Invalid Desktop Entry (key name doesn't match [A-Za-z0-9-]+) must trigger the error callback");
+				test.done();
+			},function(errorMessage){
+				test.ok(true);
+				test.done();
+			}
+		);
+	},
+	
+	// TODO ignore space between '=' sign for entries
+//	ignoreSpace : function(test){},
+	
+	// TODO ensures entry key names are case sensitive
+	caseSensitivity : function(test){
+		test.expect(3);
+		// FIXME retrieve the resource relatively to the test, not the cwd
+		desktop_entry.load('./test/testCaseSensitivity.entry',
+			function(menu) {
+				var entries = menu["Desktop Entry"];
+				test.strictEqual(entries["aaa"], "lowercase");
+				test.strictEqual(entries["AAA"], "uppercase");
+				test.strictEqual(entries["aAa"], "mixed");
+				test.done();
+			},function(errorMessage){
+				test.ok(false, "Valid Desktop Entry (key name matches [A-Za-z0-9-]+) shouldn't trigger the error callback");
+				test.done();
+			}
+		);
+	
+	},
+	
+	// TODO not allowed in same section, allowed in different sections
+//	entryKeyDuplication : function(test){},
 };
