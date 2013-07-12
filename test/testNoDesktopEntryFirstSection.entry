@@ -1,0 +1,11 @@
+# A valid Desktop Entry must starts with the Desktop Entry section
+# this entry is invalid and must fail to load
+
+[A Section]
+foo=bar
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=MimeType
+Comment=This is a comment

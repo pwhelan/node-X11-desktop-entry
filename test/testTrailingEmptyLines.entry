@@ -1,0 +1,14 @@
+# It seems that if there is empty lines at end, the read fails (3rd party library "lazy" is a little specific for empty line :( )
+# add a test to ensure it works properly "at the end"
+
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=MimeType
+Comment=This is a comment
+
+
+
+
+
+
