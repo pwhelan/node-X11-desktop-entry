@@ -8,8 +8,18 @@ NodeJS X11 Desktop Entry
 Install the module with: `npm install X11-desktop-entry`
 
 ```javascript
-var X11_desktop_entry = require('X11-desktop-entry');
-X11_desktop_entry.awesome(); // "awesome"
+var desktop_entry = require('desktop-entry');
+desktop_entry.load('./myfile.entry',
+	function(model){
+		// model is a JSON representation of the Desktop Entry file
+		// where sections are roots of JSON object
+		// each root contains a list of {key:value} objects.
+		console.log(model["Desktop Entry"].Version);
+	},
+	function(errorMessage){
+		// handle error here
+	}
+	);
 ```
 
 ## Documentation
