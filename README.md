@@ -33,6 +33,8 @@ desktop_entry.load({
 });
 ```
 
+{% gist 5990803 %}
+
 Finally invoke `node` on it:
 
 ```bash
