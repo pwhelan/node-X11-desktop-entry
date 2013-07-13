@@ -17,6 +17,7 @@ Type=MimeType
 Comment=This is a comment
 ```
 
+[desktop-entry_getting-started.js](https://gist.github.com/opatry/5990803)
 ```javascript
 var desktop_entry = require('desktop-entry');
 desktop_entry.load({
@@ -32,8 +33,6 @@ desktop_entry.load({
 	}
 });
 ```
-
-{% gist 5990803 %}
 
 Finally invoke `node` on it:
 
