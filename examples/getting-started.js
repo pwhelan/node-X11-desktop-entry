@@ -1,4 +1,4 @@
-var desktop_entry = require('desktop-entry');
+var desktop_entry = require('../lib/desktop-entry');
 
 desktop_entry.load({
 	entry:'./myfile.desktop',
@@ -6,9 +6,10 @@ desktop_entry.load({
 		// model is a JSON representation of the Desktop Entry file
 		// where sections are roots of JSON object
 		// each root contains a list of {key:value} objects.
-		console.log(model["Desktop Entry"].Version);
+		console.log("The Desktop Entry 'Version' key is: " + model["Desktop Entry"].Version);
 	},
 	onError:function(errorMessage){
 		// handle error here
+		console.log("Error while loading desktop entry file: " + errorMessage);
 	}
 });
