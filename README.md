@@ -17,7 +17,7 @@ Type=MimeType
 Comment=This is a comment
 ```
 
-[desktop-entry_getting-started.js](https://gist.github.com/opatry/5990803)
+[getting-started.js](examples/getting-started.js)
 ```javascript
 var desktop_entry = require('desktop-entry');
 desktop_entry.load({
@@ -28,7 +28,7 @@ desktop_entry.load({
 		// each root contains a list of {key:value} objects.
 		console.log(model["Desktop Entry"].Version);
 	},
-	onErrorfunction(errorMessage){
+	onError:function(errorMessage){
 		// handle error here
 	}
 });
