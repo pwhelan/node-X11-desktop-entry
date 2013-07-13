@@ -5,7 +5,7 @@ NodeJS X11 Desktop Entry is a NodeJS Library used to load and handle X11 Desktop
 ## Getting Started
 Install the module using [npm](https://npmjs.org/):
 ```bash
-$ npm install X11-desktop-entry
+$ npm install desktop-entry
 ```
 
 Write a NodeJS script using the library and load a Desktop Entry file:
@@ -20,7 +20,7 @@ Comment=This is a comment
 ```javascript
 var desktop_entry = require('desktop-entry');
 desktop_entry.load({
-	entry:'./myfile.entry',
+	entry:'./myfile.desktop',
 	onSuccess:function(model){
 		// model is a JSON representation of the Desktop Entry file
 		// where sections are roots of JSON object
