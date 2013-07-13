@@ -1,7 +1,7 @@
 {
 	"name": "desktop-entry",
 	"description": "NodeJS X11 Desktop Entry",
-	"version": "0.1.0-pre+POC",
+	"version": "0.1.0-pre",
 	"homepage": "https://github.com/opatry/node-X11-desktop-entry",
 	"author": {
 		"name": "opatry",
