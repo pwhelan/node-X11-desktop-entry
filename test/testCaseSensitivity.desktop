@@ -1,0 +1,7 @@
+# Key names are case sensitive, each of these key is a different one
+# this test must pass
+
+[Desktop Entry]
+aaa=lowercase
+AAA=uppercase
+aAa=mixed

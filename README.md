@@ -19,17 +19,18 @@ Comment=This is a comment
 
 ```javascript
 var desktop_entry = require('desktop-entry');
-desktop_entry.load('./myfile.entry',
-	function(model){
+desktop_entry.load({
+	entry:'./myfile.entry',
+	onSuccess:function(model){
 		// model is a JSON representation of the Desktop Entry file
 		// where sections are roots of JSON object
 		// each root contains a list of {key:value} objects.
 		console.log(model["Desktop Entry"].Version);
 	},
-	function(errorMessage){
+	onErrorfunction(errorMessage){
 		// handle error here
 	}
-);
+});
 ```
 
 Finally invoke `node` on it:
