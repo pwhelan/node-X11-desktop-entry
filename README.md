@@ -37,7 +37,7 @@ desktopEntry.load({
 Finally invoke `node` on it:
 
 ```bash
-$ node mytest.js
+$ node getting-started.js
 ```
 
 ## License
