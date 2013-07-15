@@ -1,14 +1,13 @@
 'use strict';
 
-var desktop_entry = require('../lib/desktop-entry.js');
-var path = require("path");
+var desktopEntry = require('../lib/desktop-entry.js');
 
 exports.load_test = {
 	simple : function(test) {
 		test.expect(1);
 		
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testSimple.desktop',
 			onSuccess:function(model) {
 				test.ok(true);
@@ -25,19 +24,19 @@ exports.load_test = {
 		test.expect(6);
 
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testSimple.desktop', 
 			onSuccess:function(entry) {
 				test.notStrictEqual(entry, undefined);
 	
-				var defaultSection = entry["Desktop Entry"];
+				var defaultHeader = entry["Desktop Entry"];
 	
-				test.notEqual(defaultSection, undefined);
+				test.notEqual(defaultHeader, undefined);
 	
-				test.strictEqual(defaultSection.Version, "1.0");
-				test.strictEqual(defaultSection.Encoding, "UTF-8");
-				test.strictEqual(defaultSection.Type, "MimeType");
-				test.strictEqual(defaultSection.Comment, "This is a comment");
+				test.strictEqual(defaultHeader.Version, "1.0");
+				test.strictEqual(defaultHeader.Encoding, "UTF-8");
+				test.strictEqual(defaultHeader.Type, "MimeType");
+				test.strictEqual(defaultHeader.Comment, "This is a comment");
 	
 				test.done();
 			},
@@ -48,14 +47,14 @@ exports.load_test = {
 		});
 	},
 
-	 noDesktopEntryFirstSection : function(test) {
+	 noDesktopEntryFirstHeader : function(test) {
 		 test.expect(1);
 		
 		 // FIXME retrieve the resource relatively to the test, not the cwd
-		 desktop_entry.load({
-			entry:'./test/testNoDesktopEntryFirstSection.desktop',
+		 desktopEntry.load({
+			entry:'./test/testNoDesktopEntryFirstHeader.desktop',
 			onSuccess:function(model) {
-				test.ok(false, "Invalid Desktop Entry (no Desktop Entry as first section) must trigger the error callback.");
+				test.ok(false, "Invalid Desktop Entry (no Desktop Entry as first header) must trigger the error callback.");
 				test.done();
 			},
 			onError:function(errorMessage){
@@ -65,13 +64,13 @@ exports.load_test = {
 		 });
 	 },
 
-	 noDesktopEntrySection : function(test) {
+	 noDesktopEntryHeader : function(test) {
 		 test.expect(1);
 		 // FIXME retrieve the resource relatively to the test, not the cwd
-		 desktop_entry.load({
-			entry:'./test/testNoDesktopEntrySection.desktop',
+		 desktopEntry.load({
+			entry:'./test/testNoDesktopEntryHeader.desktop',
 			onSuccess:function(model) {
-				test.ok(false, "Invalid Desktop Entry (no Desktop Entry section) must trigger the error callback.");
+				test.ok(false, "Invalid Desktop Entry (no Desktop Entry header) must trigger the error callback.");
 				test.done();
 			},
 			onError:function(errorMessage){
@@ -81,13 +80,29 @@ exports.load_test = {
 		 });
 	 },
 
-	noSection : function(test) {
+	noHeader : function(test) {
 		test.expect(1);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
-			entry:'./test/testNoSection.desktop',
+		desktopEntry.load({
+			entry:'./test/testNoHeader.desktop',
 			onSuccess:function(model) {
-				test.ok(false, "Invalid Desktop Entry (no section) must trigger the error callback.");
+				test.ok(false, "Invalid Desktop Entry (no header) must trigger the error callback.");
+				test.done();
+			},
+			onError:function(errorMessage){
+				test.ok(true);
+				test.done();
+			}
+		});
+	},
+	
+	invalidHeaderPattern : function(test) {
+		test.expect(1);
+		// FIXME retrieve the resource relatively to the test, not the cwd
+		desktopEntry.load({
+			entry:'./test/testInvalidHeaderPattern.desktop',
+			onSuccess:function(model) {
+				test.ok(false, "Invalid Desktop Entry (invalid header pattern) must trigger the error callback.");
 				test.done();
 			},
 			onError:function(errorMessage){
@@ -100,7 +115,7 @@ exports.load_test = {
 	leadingEmptyLines : function(test) {
 		test.expect(1);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testLeadingEmptyLines.desktop',
 			onSuccess:function(entries) {
 				test.ok(true);
@@ -116,7 +131,7 @@ exports.load_test = {
 	trailingEmptyLines : function(test) {
 		test.expect(1);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testTrailingEmptyLines.desktop',
 			onSuccess:function(entries) {
 				test.ok(true);
@@ -132,7 +147,7 @@ exports.load_test = {
 	validKeyNames: function(test){
 		test.expect(5);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testValidKeyNames.desktop',
 			onSuccess:function(menu) {
 				var entries = menu["Desktop Entry"];
@@ -153,7 +168,7 @@ exports.load_test = {
 	invalidKeyNames001: function(test){
 		test.expect(1);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testInvalidKeyNames001.desktop',
 			onSuccess:function(entries) {
 				test.ok(false, "Invalid Desktop Entry (key name doesn't match [A-Za-z0-9-]+) must trigger the error callback");
@@ -169,7 +184,7 @@ exports.load_test = {
 	invalidKeyNames002: function(test){
 		test.expect(1);
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testInvalidKeyNames002.desktop',
 			onSuccess:function(entries) {
 				test.ok(false, "Invalid Desktop Entry (key name doesn't match [A-Za-z0-9-]+) must trigger the error callback");
@@ -190,7 +205,7 @@ exports.load_test = {
 		test.expect(3);
 	    
 		// FIXME retrieve the resource relatively to the test, not the cwd
-		desktop_entry.load({
+		desktopEntry.load({
 			entry:'./test/testCaseSensitivity.desktop',
 			onSuccess:function(menu) {
 				var entries = menu["Desktop Entry"];
@@ -206,6 +221,6 @@ exports.load_test = {
 		});
 	},
 	
-	// TODO not allowed in same section, allowed in different sections
+	// TODO not allowed in same header, allowed in different headers
 //	entryKeyDuplication : function(test){},
 };

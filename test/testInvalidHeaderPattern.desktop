@@ -1,0 +1,7 @@
+# A valid header line starts with '[' and ends with ']'
+
+ [Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Type=MimeType
+Comment=This is a comment

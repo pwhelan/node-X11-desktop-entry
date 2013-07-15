@@ -19,8 +19,8 @@ Comment=This is a comment
 
 [getting-started.js](examples/getting-started.js)
 ```javascript
-var desktop_entry = require('desktop-entry');
-desktop_entry.load({
+var desktopEntry = require('desktop-entry');
+desktopEntry.load({
 	entry:'./myfile.desktop',
 	onSuccess:function(model){
 		// model is a JSON representation of the Desktop Entry file

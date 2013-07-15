@@ -1,4 +1,4 @@
-# A valid Desktop Entry must have at least one section: the Desktop Entry section
+# A valid Desktop Entry must have at least one header: the Desktop Entry header
 # this entry is invalid and must fail to load
 
 Version=1.0

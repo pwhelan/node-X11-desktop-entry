@@ -1,7 +1,7 @@
-# A valid Desktop Entry must starts with the Desktop Entry section
+# A valid Desktop Entry must starts with the Desktop Entry header
 # this entry is invalid and must fail to load
 
-[A Section]
+[A Header]
 foo=bar
 
 [Desktop Entry]
