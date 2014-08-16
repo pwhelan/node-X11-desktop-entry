@@ -21,7 +21,7 @@
       "url": "https://github.com/opatry/node-X11-desktop-entry/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "lib/X11-desktop-entry",
+  "main": "lib/desktop-entry.js",
   "engines": {
     "node": ">= 0.8.0"
   },
