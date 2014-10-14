@@ -5,7 +5,7 @@ NodeJS X11 Desktop Entry is a NodeJS Library used to load and handle X11 Desktop
 ## Getting Started
 Install the module using [npm](https://npmjs.org/):
 ```bash
-$ npm install desktop-entry
+$ npm install node-x11-desktop-entry
 ```
 
 Write a NodeJS script using the library and load a Desktop Entry file:
