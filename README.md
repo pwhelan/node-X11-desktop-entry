@@ -19,7 +19,7 @@ Comment=This is a comment
 
 [getting-started.js](examples/getting-started.js)
 ```javascript
-var desktopEntry = require('desktop-entry');
+var desktopEntry = require('node-x11-desktop-entry');
 desktopEntry.load({
 	entry:'./myfile.desktop',
 	onSuccess:function(model){
